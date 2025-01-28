@@ -52,3 +52,5 @@ tests/*.py[cod]
 # Adicione aqui diretórios ou arquivos gerados automaticamente no seu projeto que não devem ser versionados.
 data/
 output/
+.idea/
+files/
