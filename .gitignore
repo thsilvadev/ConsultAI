@@ -1,0 +1,54 @@
+# Python general
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+
+# Virtual environments
+venv/
+.env/
+*.env
+*.venv
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Hugging Face cache
+# Padrão de cache do Hugging Face
+~/.cache/huggingface/
+.cache/
+transformers_cache/
+datasets_cache/
+
+# Modelos baixados do Hugging Face
+*.bin
+*.h5
+*.msgpack
+*.data-00000-of-00001
+*.index
+*.meta
+config.json
+tf_model.h5
+pytorch_model.bin
+flax_model.msgpack
+
+# Arquivos de testes
+tests/__pycache__/
+tests/*.py[cod]
+
+# Outros caches
+*.tmp
+*.bak
+
+# Arquivos específicos do projeto
+# Adicione aqui diretórios ou arquivos gerados automaticamente no seu projeto que não devem ser versionados.
+data/
+output/
