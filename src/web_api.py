@@ -1,12 +1,14 @@
 from typing import Union
-from pydantic import BaseModel
 from fastapi import FastAPI, File, UploadFile, Body, HTTPException
 from docling_parser import parse
 from datetime import datetime
 import pytz
 import json
+import ollama
 
 from fastapi.middleware.cors import CORSMiddleware
+
+from llm_analyzer import process_exam
 
 # manaus time (só pra mostraTech)
 manaus_tz = pytz.timezone('America/Manaus')
@@ -47,7 +49,7 @@ async def post_document(user_data: str = Body(...), file: UploadFile = File(...)
     if not nome:
         raise HTTPException(status_code=400, detail="Campo 'nome' está vazio ou ausente.")
 
-    print("nome do paciente: ", nome)
+    print("dados do paciente: ", user_data_dict)
 
     #trata o documento
     filename = file.filename
@@ -62,12 +64,23 @@ async def post_document(user_data: str = Body(...), file: UploadFile = File(...)
     #manda pro docling
     result_md = parse(file_path)
 
-    #manda pra LLM\
-
-    #retorna pro client
+    md_file_path = f"./md_files/{manaus_time}_{nome}.md"
+    with open( md_file_path, "w", encoding="utf-8") as f:
+        f.write(result_md)
 
     if result_md:
-        return {"filename": filename, "message": result_md}
+    #manda pra LLM\
+        try:
+            output = process_exam(result_md, user_data_dict)
+            #retorna pro client
+        except:
+            raise HTTPException(
+                status_code=400,
+                detail="Problema durante interpretação da IA. Por favor, tente novamente mais tarde."
+            )
+        print(output)
+
+        return {"output": output}
     else:
         raise HTTPException(
             status_code=400,

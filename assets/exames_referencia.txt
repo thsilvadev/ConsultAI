@@ -1,0 +1,98 @@
+1. Exame de Sangue Completo
+
+Um hemograma completo e outros exames laboratoriais podem incluir:
+
+Hemograma Completo (Avaliação das células do sangue)
+	•	Hemácias (Glóbulos Vermelhos - RBC)
+	•	Hemoglobina (Hb)
+	•	Hematócrito (Ht)
+	•	Volume Corpuscular Médio (VCM)
+	•	Hemoglobina Corpuscular Média (HCM)
+	•	Concentração de Hemoglobina Corpuscular Média (CHCM)
+	•	RDW (Red Cell Distribution Width)
+	•	Leucócitos (Glóbulos Brancos - WBC)
+	•	Neutrófilos segmentados e bastonetes
+	•	Linfócitos
+	•	Monócitos
+	•	Eosinófilos
+	•	Basófilos
+	•	Plaquetas (PLT)
+
+Bioquímica Sanguínea (Avaliação metabólica e funcional dos órgãos)
+	•	Glicose (Monitoramento de diabetes)
+	•	Hemoglobina Glicada (HbA1c) (Diabetes)
+	•	Ureia (Função renal)
+	•	Creatinina (Função renal)
+	•	Ácido úrico (Gota e função renal)
+	•	Sódio (Na), Potássio (K), Cloro (Cl), Cálcio (Ca), Fósforo (P) (Eletrólitos e equilíbrio mineral)
+	•	Magnésio (Mg)
+	•	Proteínas Totais e Frações (Albumina e Globulina)
+	•	Transaminases (TGO/AST e TGP/ALT) (Função hepática)
+	•	Gama-GT (GGT) (Função hepática)
+	•	Fosfatase Alcalina (FA) (Doenças ósseas e hepáticas)
+	•	Bilirrubinas (Total, Direta e Indireta) (Saúde do fígado e icterícia)
+
+Perfil Lipídico (Colesterol e triglicerídeos)
+	•	Colesterol Total
+	•	HDL (Colesterol bom)
+	•	LDL (Colesterol ruim)
+	•	VLDL
+	•	Triglicerídeos
+
+Coagulação Sanguínea
+	•	Tempo de Protrombina (TP)
+	•	Tempo de Tromboplastina Parcial Ativada (TTPa)
+	•	INR (Razão Normalizada Internacional)
+
+Função da Tireóide
+	•	TSH (Hormônio Estimulante da Tireóide ou Hormônio Tireoestimulante)
+	•	T3 livres
+	•	T4 livres
+
+Marcadores Inflamatórios
+	•	PCR (Proteína C Reativa)
+	•	VHS (Velocidade de Hemossedimentação)
+
+Marcadores Hepáticos e Virais
+	•	Hepatite B e C (HBsAg, Anti-HBc, Anti-HCV)
+	•	HIV (Teste de Triagem e Confirmatório)
+	•	Sífilis (VDRL ou FTA-ABS)
+
+Exames Hormonais
+	•	Testosterona Total e Livre
+	•	Estrogênio (Estradiol)
+	•	Progesterona
+	•	Prolactina
+	•	Cortisol
+	•	FSH e LH (Hormônios gonadotróficos)
+	•	Insulina
+
+Marcadores de Doenças Autoimunes
+	•	Fator Reumatoide (FR)
+	•	Anticorpos Anti-nucleares (FAN)
+	•	Anti-CCP (Artrite Reumatoide)
+
+2. Exame de Urina (EAS - Elementos Anormais do Sedimento)
+	•	Aspecto e cor
+	•	Densidade
+	•	pH
+	•	Glicose
+	•	Proteínas
+	•	Cetonas
+	•	Leucócitos
+	•	Eritrócitos (Hemácias)
+	•	Urobilinogênio e Bilirrubina
+	•	Cilindros urinários
+	•	Cristais (oxalato de cálcio, ácido úrico, etc.)
+	•	Bactérias e leucócitos (Indicação de infecção urinária)
+
+Caso haja suspeita de infecção, pode ser feito um urocultura para identificar a bactéria e um antibiograma para determinar a melhor opção de antibiótico.
+
+3. Exame de Fezes (Parasitológico e Coprocultura)
+	•	Consistência e cor
+	•	Presença de muco ou sangue oculto
+	•	Leucócitos e hemácias nas fezes
+	•	Presença de ovos, larvas ou parasitas (Ex: Giardia, Entamoeba, Ascaris, Ancilostoma, etc.)
+	•	Teste de Rotavírus ou Adenovírus (se houver suspeita de infecção viral)
+	•	Pesquisa de gordura fecal (Síndrome de má absorção)
+	•	Pesquisa de Helicobacter pylori (se solicitado)
