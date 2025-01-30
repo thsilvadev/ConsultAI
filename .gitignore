@@ -53,4 +53,4 @@ tests/*.py[cod]
 data/
 output/
 .idea/
-files/
+/files/*
