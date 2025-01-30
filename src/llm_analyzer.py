@@ -1,14 +1,7 @@
-
-
 import ollama
-import json
 
-from pydantic import BaseModel
-from sympy.physics.units import temperature
-
-
-class Output(BaseModel):
-    response: str
+# class Output(BaseModel):
+#     response: str
 
 def process_exam(result_md, pacient_data):
     prompt_data = {
@@ -18,29 +11,34 @@ def process_exam(result_md, pacient_data):
     }
 
     formatted_prompt = f"""
-    1. Analise o exame anterior considerando os seguintes dados do paciente: `{pacient_data}`.
-    2. Identifique pontos de atenção médica, valores anormais e riscos associados.
-    3. Oriente o paciente sobre os próximos passos com base na análise.
+    Responda-me no idioma português do Brasil (PT-BR):
+    
+    1. Analise o exame acima considerando os seguintes dados sobre mim: `{pacient_data}`.
+    2. Identifique e aponte valores anormais e riscos associados.
+    3. Oriente-me sobre os próximos passos com base na análise.
     """
 
     system_prompt = f"""
-     Você é um especialista em analisar exames médicos e clarear os pacientes sobre os resultados.
-     
-     Responda estritamente no seguinte formato JSON e em português do Brasil:
+    **IMPORTANTE:** Responda APENAS em português do Brasil. Não use outros idiomas.
+    
+    * Você é um especialista em analisar exames médicos e instruir o paciente sobre os resultados.
+
+    * Fale de forma clara e acessível, como um médico conversando com um paciente.
+
+    ** Exemplo de resposta esperada:**  
     ```json
     {{
-        "response": "Texto explicativo sobre os achados médicos ao analisar o exame, evidenciando pontos de atenção e riscos e orientando o paciente."
+        "response": "Seu exame apresenta valores normais para glicose, mas há um pequeno aumento na pressão arterial. Recomendo manter uma dieta equilibrada e consultar um cardiologista."
     }}
     ```
     """
 
     messages = [
         {"role": "system", "content": system_prompt},
-        {"role": "assistant", "content": str(result_md)},
-        {"role": "user", "content": formatted_prompt}
+        {"role": "user", "content": f"{str(result_md)} \n {formatted_prompt}"}
     ]
-    model ="mdubu/saaam_is_a_doctor"
+    models = ["llama3", "medllama2", "deepseek-r1", "mdubu/saaam_is_a_doctor"]
 
-    response = ollama.chat(model=model, messages=messages, stream=False, format=Output.model_json_schema(), options={temperature: 0.2})
+    response = ollama.chat(model=models[3], messages=messages, stream=False, options={"temperature": 0.3})
 
     return response
