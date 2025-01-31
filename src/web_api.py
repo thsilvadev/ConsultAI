@@ -1,14 +1,17 @@
-from typing import Union
+import os
+
 from fastapi import FastAPI, File, UploadFile, Body, HTTPException
 from docling_parser import parse
 from datetime import datetime
 import pytz
 import json
-import ollama
-
 from fastapi.middleware.cors import CORSMiddleware
-
 from llm_analyzer import process_exam
+from groq_analyzer import groq_exam
+import dotenv
+
+
+dotenv.load_dotenv()
 
 # manaus time (só pra mostraTech)
 manaus_tz = pytz.timezone('America/Manaus')
@@ -25,20 +28,10 @@ app.add_middleware(
     allow_headers=["*"],  # Permitir todos os headers
 )
 
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
-
 @app.post("/document")
 async def post_document(user_data: str = Body(...), file: UploadFile = File(...)):
     # Parse the string JSON into a Python dictionary
-    # 1. Tenta parsear o JSON recebido
+    # Tenta parsear o JSON recebido
     try:
         user_data_dict = json.loads(user_data)
     except json.JSONDecodeError:
@@ -71,7 +64,8 @@ async def post_document(user_data: str = Body(...), file: UploadFile = File(...)
     if result_md:
     #manda pra LLM\
         try:
-            output = process_exam(result_md, user_data_dict)
+            #output = process_exam(result_md, user_data_dict)
+            output = groq_exam(result_md, user_data_dict, os.getenv("GROQ_API_KEY"))
             #retorna pro client
         except:
             raise HTTPException(
