@@ -1,7 +1,6 @@
 import os
 from groq import Groq
-
-
+from numpy.f2py.auxfuncs import throw_error
 
 
 def groq_exam(result_md, pacient_data, api_key):
@@ -34,8 +33,14 @@ def groq_exam(result_md, pacient_data, api_key):
 
     client = Groq(api_key=api_key)
 
-    chat_completion = client.chat.completions.create(
-        messages=messages,
-        model=models[4],
-    )
-    return chat_completion.choices[0].message.content
+    try:
+        chat_completion = client.chat.completions.create(
+            messages=messages,
+            model=models[4],
+        )
+
+        return chat_completion.choices[0].message.content
+    except Exception as e:
+        print(e)
+
+

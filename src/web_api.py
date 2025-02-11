@@ -1,6 +1,8 @@
 import os
 
 from fastapi import FastAPI, File, UploadFile, Body, HTTPException
+from starlette.requests import Request
+
 from docling_parser import parse
 from datetime import datetime
 import pytz
@@ -19,10 +21,27 @@ manaus_time = datetime.now(manaus_tz).strftime("%Y%m%d_%H%M%S")  # Formato váli
 
 app = FastAPI()
 
+# Middleware para adicionar headers CORS manualmente
+@app.middleware("http")
+async def add_cors_headers(request: Request, call_next):
+    response = await call_next(request)
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+    response.headers["Access-Control-Allow-Credentials"] = "true"
+    return response
+
 # Configuração do CORS
+
+origins = [
+    "https://consult-ai-beta.vercel.app",
+    "http://localhost:5173",
+    "http://smoothly-apparent-hawk.ngrok-free.app"
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Substitua pelo domínio da sua aplicação
+    allow_origins=origins,  # Substitua pelo domínio da sua aplicação
     allow_credentials=True,
     allow_methods=["*"],  # Permitir todos os métodos (GET, POST, etc.)
     allow_headers=["*"],  # Permitir todos os headers
